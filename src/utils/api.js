@@ -22,7 +22,7 @@ class Api {
 }
 
 export const api = new Api({
-    baseUrl: "http://localhost:3010",
+    baseUrl: "https://avid-properties-db.herokuapp.com/",
     headers: {
       "Content-Type": "application/json",
     },
