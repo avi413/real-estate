@@ -22,7 +22,7 @@ class Api {
 }
 
 export const api = new Api({
-    baseUrl: "https://avid-properties-db.herokuapp.com/",
+    baseUrl: "https://avid-properties-db.herokuapp.com",
     headers: {
       "Content-Type": "application/json",
     },
