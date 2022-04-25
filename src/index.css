@@ -6,6 +6,13 @@
     sans-serif;
 }
 
+.search-box {
+  display: flex;
+  margin: 50px auto;
+  justify-content: center;
+  max-width: 950px;
+}
+
 .properties__list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
