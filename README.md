@@ -10,12 +10,12 @@ Page real-estate:\
 Page map:\
 -Loads map with Israel coordinates by default\
 -Contains change of coordinates according to map movement\
--Changes the focus of the map according to the data entered\
+-Changes the focus of the map according to the data entered
 
 
 Technologies I used:\
 React.js\
-git pages\
+github pages\
 heruku demo db
 
 
