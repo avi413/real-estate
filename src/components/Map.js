@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
-import { TextField, Input } from "@mui/material";
+import MapboxWorker from 'mapbox-gl/dist/mapbox-gl-csp-worker'; 
+import { TextField } from "@mui/material";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 mapboxgl.accessToken =
@@ -25,8 +26,8 @@ function Map() {
   }
   useEffect(() => {
     if (map.current) return; // initialize map only once
-    
     map.current = new mapboxgl.Map({
+      workerClass: MapboxWorker,
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [lng, lat],
