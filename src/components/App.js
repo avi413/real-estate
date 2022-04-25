@@ -1,53 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { api } from "../utils/api";
-import Main from "./Main";
+import React from 'react';
+import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
+import Realestate from './Realestate';
+import PageNotFound from './PageNotFound';
+import Map from './Map';
 
 function App() {
-  const [properties, setProperties] = useState([]);
-  const [value, setValue] = useState();
-  const [inputValue, setInputValue] = useState("");
-
-  const [rooms, setRooms] = useState();
-  const [rommsInput,  setRommsInput] = useState("");
-
-
-
-  useEffect(() => {
-    api
-      .getProperties()
-      .then((data) => {
-        data.forEach((element) => {
-          element.address = decodeURIComponent(
-            JSON.parse('"' + element.address + '"')
-          );
-        });
-        setProperties(data.filter((item) => item.address != "NaN"));
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, []);
-  const hndleSortByPrice = () => {
-    setProperties(properties.sort((a, b) => a.price - b.price));
-  };
-
   return (
-    <div className="App" dir="rtl">
-      <Main
-        onSortByPrice={hndleSortByPrice}
-        properties={properties}
-        setProperties={setProperties}
-        value={value}
-        rooms={rooms}
-        rommsInput={rommsInput}
-        setRommsInput={setRommsInput}
-       inputValue={inputValue}
-
-        setRooms={setRooms}
-        setValue={setValue}
-        setInputValue={setInputValue}
-      />
-    </div>
+    <BrowserRouter> 
+      <div className="App"  dir="rtl">
+        <header className="header">
+          <NavLink to='/' className="header__logo">Real estate demo appy</NavLink>
+          <nav className="menu">
+            <ul className="menu__list">
+              <li className="menu__list-item"><NavLink className="menu__link" to='/real-estate'>Real estate</NavLink></li>
+              <li className="menu__list-item"><NavLink className="menu__link" to='/map'>Map</NavLink></li>
+            </ul>
+          </nav>
+        </header>
+        <Switch>
+          <Route exact path='/' component={Realestate}/>
+          <Route exact path='/real-estate' component={Realestate}/>
+          <Route exact path='/map' component={Map}/>
+          <Route exact path='/*' component={PageNotFound}/>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
