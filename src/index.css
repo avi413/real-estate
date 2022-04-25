@@ -6,11 +6,16 @@
     sans-serif;
 }
 
-.search-box {
+.search {
   display: flex;
   margin: 50px auto;
   justify-content: center;
   max-width: 950px;
+}
+@media only screen and (max-width: 900px) {
+  .search {
+flex-wrap: wrap;
+  }
 }
 
 .properties__list {

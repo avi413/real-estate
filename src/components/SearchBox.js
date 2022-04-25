@@ -17,10 +17,10 @@ export default function SearchBox(props) {
   } = props;
   const numOfRooms = [...new Set(data.map(item => item.num_rooms.toString()))];
   return (
-    <>
+    <div className="search">
       <Button onClick={() => requestSort("price")}>מיון לפי מחיר</Button>
       <Autocomplete
-        sx={{ width: "50%" }}
+        sx={{ minWidth: 300 }}
         value={value}
         inputValue={inputValue}
         onInputChange={(event, newInputValue) => {
@@ -31,7 +31,7 @@ export default function SearchBox(props) {
         renderInput={(params) => <TextField {...params} label="כתובת" />}
       />
      <Autocomplete
-      sx={{ width: "20%" }}
+      sx={{ minWidth: 120 }}
         value={rooms}
         id="rooms"
         freeSolo
@@ -42,6 +42,6 @@ export default function SearchBox(props) {
         options={numOfRooms}
         renderInput={(params) => <TextField {...params} label="מספר חדרים" />}
       />
-    </>
+    </div>
   );
 }
