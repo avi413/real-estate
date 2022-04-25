@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { api } from "../utils/api";
 import Main from "./Main";
-import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
 
 function App() {
   const [properties, setProperties] = useState([]);
   const [value, setValue] = useState();
-  const [rooms, setRooms] = useState();
   const [inputValue, setInputValue] = useState("");
-  const [units, setUnits] = useState("");
+
+  const [rooms, setRooms] = useState();
+  const [rommsInput,  setRommsInput] = useState("");
+
+
 
   useEffect(() => {
     api
@@ -38,11 +39,12 @@ function App() {
         setProperties={setProperties}
         value={value}
         rooms={rooms}
-        inputValue={inputValue}
-        units={units}
+        rommsInput={rommsInput}
+        setRommsInput={setRommsInput}
+       inputValue={inputValue}
+
         setRooms={setRooms}
         setValue={setValue}
-        setUnits={setUnits}
         setInputValue={setInputValue}
       />
     </div>

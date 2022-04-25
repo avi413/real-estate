@@ -10,7 +10,9 @@ export default function SearchBox(props) {
     value,
     inputValue,
     setInputValue,
-    setRooms,
+    rooms,
+    rommsInput,
+    setRommsInput,
     requestSort,
   } = props;
   const numOfRooms = [...new Set(data.map(item => item.num_rooms.toString()))];
@@ -30,10 +32,12 @@ export default function SearchBox(props) {
       />
      <Autocomplete
       sx={{ width: "20%" }}
+        value={rooms}
         id="rooms"
         freeSolo
+        inputValue={rommsInput}
         onInputChange={(event, newInputValue) => {
-            setRooms(newInputValue);
+            setRommsInput(newInputValue);
           }}
         options={numOfRooms}
         renderInput={(params) => <TextField {...params} label="מספר חדרים" />}

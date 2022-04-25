@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Propertie from "./Propertie";
 import SearchBox from "./SearchBox";
 import { useSortableData } from "../utils/useSortableData";
@@ -7,14 +7,16 @@ function Main(props) {
     properties,
     setProperties,
     value,
+    rooms,
     inputValue,
     setInputValue,
     setRooms,
-    onSortByPrice
+    onSortByPrice,
+    rommsInput,
+    setRommsInput,
   } = props;
 
   const { items, requestSort, sortConfig } = useSortableData(properties);
-
   return (
     <main className="content">
       <section className="search-box">
@@ -22,10 +24,13 @@ function Main(props) {
           data={properties}
           setProperties={setProperties}
           setRooms={setRooms}
+          rooms={rooms}
           value={value}
           inputValue={inputValue}
+          rommsInput={rommsInput}
           setInputValue={setInputValue}
           onSortByPrice={onSortByPrice}
+          setRommsInput={setRommsInput}
           requestSort={requestSort}
         />
       </section>
@@ -33,20 +38,20 @@ function Main(props) {
         <ul className="properties__list">
           {items
             .filter((item, rooms) => {
-              if (inputValue === "") {
+              if (inputValue === "" && rommsInput === "") {
                 return item;
               }
-              if (item.address == inputValue) {
+              if (inputValue === "" && rommsInput == item.num_rooms) {
                 return item;
               }
-              if (rooms === "") {
+              if (inputValue === item.address && rommsInput == "") {
                 return item;
               }
-              if (item.rooms == inputValue) {
+              if (inputValue === item.address && rommsInput == item.num_rooms) {
                 return item;
               }
             })
-            
+
             .map(function (propertie) {
               return (
                 <Propertie
