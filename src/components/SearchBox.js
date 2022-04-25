@@ -20,7 +20,7 @@ export default function SearchBox(props) {
     <div className="search">
       <Button onClick={() => requestSort("price")}>מיון לפי מחיר</Button>
       <Autocomplete
-        sx={{ minWidth: 300 }}
+        sx={{ minWidth: 250 }}
         value={value}
         inputValue={inputValue}
         onInputChange={(event, newInputValue) => {
