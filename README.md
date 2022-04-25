@@ -16,7 +16,7 @@ Page map:\
 Technologies I used:\
 React.js\
 github pages\
-heruku demo db
+herokuapp for demo db
 
 
 ## API Reference for data
