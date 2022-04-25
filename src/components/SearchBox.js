@@ -2,14 +2,23 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
+import Button from "@mui/material/Button";
 
 export default function SearchBox(props) {
-
-  const { data, value, inputValue, setInputValue, setProperties } = props;
-  const [items, setItems] = useState(data)
+  const {
+    data,
+    value,
+    inputValue,
+    setInputValue,
+    setRooms,
+    requestSort,
+  } = props;
+  const numOfRooms = [...new Set(data.map(item => item.num_rooms.toString()))];
   return (
-    <Stack spacing={2} sx={{ width: "90%" }}>
-       <Autocomplete
+    <>
+      <Button onClick={() => requestSort("price")}>מיון לפי מחיר</Button>
+      <Autocomplete
+        sx={{ width: "50%" }}
         value={value}
         inputValue={inputValue}
         onInputChange={(event, newInputValue) => {
@@ -17,8 +26,18 @@ export default function SearchBox(props) {
         }}
         id="searchbox"
         options={data.map((option) => option.address)}
-        renderInput={(params) => <TextField {...params} label="Controllable" />}
+        renderInput={(params) => <TextField {...params} label="כתובת" />}
       />
-    </Stack>
+     <Autocomplete
+      sx={{ width: "20%" }}
+        id="rooms"
+        freeSolo
+        onInputChange={(event, newInputValue) => {
+            setRooms(newInputValue);
+          }}
+        options={numOfRooms}
+        renderInput={(params) => <TextField {...params} label="מספר חדרים" />}
+      />
+    </>
   );
 }

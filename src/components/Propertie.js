@@ -16,6 +16,7 @@ import prop3 from "../images/prop3.jpg";
 import prop4 from "../images/prop4.jpg";
 
 export default function Propertie(props) {
+
   const { data } = props;
 
   const imgArr = [prop1, prop2, prop3, prop4];
