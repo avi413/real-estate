@@ -6,7 +6,6 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoiYXZpNDEzIiwiYSI6ImNsMmYwcjl1cDA0MnYzY3FndHVqeGxqMjkifQ.zswpR1szSdaZOEwXLxEbXw";
-
 function Map() {
   const mapContainer = useRef(null);
   const map = useRef(null);
