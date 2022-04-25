@@ -1,9 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
 import { TextField, Input } from "@mui/material";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 mapboxgl.accessToken =
-  "pk.eyJ1IjoiYXZpNDEzIiwiYSI6ImNsMmRmNnNpbDAxM3czYnB4Y2xuZjNoOW0ifQ.WiYM1t8aD2x7EMSWfhLEAw";
+  "pk.eyJ1IjoiYXZpNDEzIiwiYSI6ImNsMmYwcjl1cDA0MnYzY3FndHVqeGxqMjkifQ.zswpR1szSdaZOEwXLxEbXw";
 
 function Map() {
   const mapContainer = useRef(null);
